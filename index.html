@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<style>
+  body {
+    background-color: #ece5ce;
+  }
+
+  #outer {
+    height: 500px;
+  }
+
+  #photo {
+
+    height: 100%;
+    filter: brightness(0.6);
+  }
+
+  #categoryphotos{
+    filter: brightness(0.6);
+  }
+</style>
+<!-- carousal start -->
+<section>
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" id="outer">
+        <img src="../static/images/Farmc-1.avif" class="d-block w-100  mx-auto" alt="..." id="photo">
+        <div class="carousel-caption d-none d-md-block mt-4 top-0">
+          <h1 class="mt-5 display-1 "> Welcome to The <strong>Sunshine Farms! </strong> </h1>
+          <p class="mt-5 fs-3 text-sm text-upper">Fresh from fertile fields painted with organic hues and bursting with
+            the earth's vibrant energy.</p>
+        </div>
+      </div>
+      <div class="carousel-item" id="outer">
+        <img src="../static/images/Farmc-2.jpg" class="d-block w-100" alt="..." id="photo">
+        <div class="carousel-caption d-none d-md-block  mt-5 top-0">
+          <h5 class="mt-5 display-1 ">Unbox Nature's Treasures</h5>
+          <h3 class="mt-5 ">Taste the Difference, Feel the Soil Beneath Your Fingers</h3>
+        </div>
+      </div>
+      <div class="carousel-item" id="outer">
+        <img src="../static/images/Farmc-3.jpg" class="d-block w-100" alt="..." id="photo">
+        <div class="carousel-caption d-none d-md-block mt-4 top-0">
+          <h1 class="mt-5 display-1 "> <strong>Field to Fridge, Fresh happiness delivered</strong> </h1>
+          <p class="mt-5 fs-3 text-sm text-capitalize">Skip the middleman and embrace the earth-to-table revolution.</p>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</section>
+<!-- Carousal end -->
+
+<!-- Loop -->
+<section class="container">
+  <h3 style="font-family: Attena; text-align: center;" class="mt-5">Our Trending Products!</h3>
+
+  <div class="row ">
+    {% for product in product %}
+    <div class="col-md-3 mt-5 " style="font-family: Arial rounded mt;">
+      <div class="card p-2 shadow" style="background-color: bisque;">
+        <img src=" {{ product.image.url }} " style="height: 320px;" class="card-img-top rounded" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> {{ product.name }} </h5>
+          <p class="card-text" style="font-family: calibri;"> {{ product.details | truncatewords:8 }} </p>
+          <a href="/productdetails/{{ product.id }}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- <div class="container">
+  
+  <div class="row">
+    <div class="col-md-3 mt-5  ">
+      <div class="card" style="height: 320px;">
+        <img src="../static/images/CowMilk2.jpg" style="height: 100%;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cow Milk</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+<!-- one -->
+
+<!-- <div class="col-md-3 mt-5 ">
+      <div class="card" style="height: 320px;">
+        <img src="../static/images/BrownEggs.jpg" style="height: 100%" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Brown Eggs</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+<!-- one -->
+
+
+<!-- <div class="col-md-3 mt-5 ">
+      <div class="card" style="height: 320px;">
+        <img src="https://i.pinimg.com/736x/91/32/83/913283f23d94fc3f0f9ed6bc64fa2f30.jpg" style="height: 100%"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Brown Eggs</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+<!-- one -->
+
+
+
+<!-- <div class="col-md-3 mt-5 ">
+      <div class="card" style="height: 320px;">
+        <img src="https://i.pinimg.com/736x/5a/bf/ce/5abfce82e3947021478aa4c34645a452.jpg" style="height: 100%"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Brown Eggs</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    one 
+
+</div> -->
+<div class="row mt-5" ></div>
+<div class="container">
+  <img src="" alt="">
+  <div class="text-center">
+    <h3><strong>Explore our Categories!</strong></h3>
+</div>
+<!-- First categories -->
+  <div class="container d-flex mt-4 p-2" style="display: flex; justify-content: space-around;">
+    <div class="card mb-3" style="max-width:540px;">
+      <div class="row g-0">
+        <div class="col-md-6"> <a href="/dairypoultry/">
+          <img src="../static/images/Categories/Category.jpg"
+            class="img-fluid rounded-start" style="width: 600px; max-height: 350px;" alt="..."></a>
+        </div>
+        <div class="col-md-6 text-dark" style="background-color: bisque;">
+          <div class="card-body" >
+            <h2 class="card-title"  style="font-family: Arial rounded mt;">
+             Dairy & Poultry
+            </h2> <br>
+            <i class="card-text">
+              A data structure is a storage that is
+              used to store and organize data.
+            </i>
+            <p class="card-text">
+              <small class="text-muted">
+                Last updated now
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card mb-3" style="max-width:540px;">
+      <div class="row g-0">
+        <div class="col-md-6 ">
+          <img src="https://images.pexels.com/photos/2768089/pexels-photo-2768089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            class="img-fluid rounded-start" style="max-height: 350px;" alt="...">
+        </div>
+        <div class="col-md-6  text-dark" style="background-color: bisque; ">
+          <div class="card-body">
+            <h2 class="card-title">Meat</h2>
+            <i class="card-text">
+              Algorithm refers to a sequence of
+              finite steps to solve a particular problem.
+            </i>
+           
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="card mb-3" style="max-width:540px;">
+      <div class="row g-0">
+        <div class="col-md-6"> <a href="/dairypoultry/">
+          <img src="../static/images/Categories/Meat Category.webp"
+            class="img-fluid rounded-start" style="width: 600px; max-height: 350px;" alt="..."></a>
+        </div>
+        <div class="col-md-6 text-dark" style="background-color: bisque;">
+          <div class="card-body" >
+            <h2 class="card-title text-center"  style="font-family: Arial rounded mt;">
+             Meat
+            </h2> <br>
+            <i class="card-text">
+              A data structure is a storage that is
+              used to store and organize data.
+            </i>
+            <p class="card-text">
+              <small class="text-muted">
+                Last updated now
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Second Categories -->
+<div class="row" style=></div>
+<div class="container d-flex " style="display: flex; justify-content: space-around;">
+  <div class="card " style="max-width:540px; height: fit-content;">
+    <div class="row g-0">
+      <div class="col-md-6"> <a href="/productdetails/1/">
+        <img src="../static/images/Categories/Farm Produce.jpg"
+          class="img-fluid rounded-start" style="width: 600px; max-height: 200px;" alt="..."></a>
+      </div>
+      <div class="col-md-6 text-dark" style="background-color: bisque;">
+        <div class="card-body" >
+          <h2 class="card-title"  style="font-family: Arial rounded mt;">
+             Farm Produce 
+          </h2> <br>
+          <i class="card-text">
+            A data structure is a storage that is
+            used to store and organize data.
+          </i>
+          <p class="card-text">
+            <small class="text-muted">
+              Last updated now
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" style="max-width:540px;">
+    <div class="row g-0">
+      <div class="col-md-6 ">
+        <img src="../static/images/Categories/Natural Superfoods.jpg"
+          class="img-fluid rounded-start" style="max-height: 210px;" alt="...">
+      </div>
+      <div class="col-md-6  text-dark" style="background-color: bisque; ">
+        <div class="card-body">
+          <h4 class="card-title"  style="font-family: Arial rounded mt;"> <strong>Natural SuperFoods  </strong> </h4>
+          <p class="card-text">
+            Algorithm refers to a sequence of
+            finite steps to solve a particular problem.
+          </p>
+          <p class="card-text">
+            <small class="text-muted">
+              Last updated now
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock body %}
